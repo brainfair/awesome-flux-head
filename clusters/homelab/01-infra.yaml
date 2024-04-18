@@ -1,0 +1,36 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: fluxcd-gitops-infra
+  namespace: flux-system
+spec:
+  interval: 10m
+  ref:
+    branch: main
+  secretRef:
+    name: flux-system
+  url: https://github.com/brainfair/awesome-flux-infra.git
+  ignore: |
+    # exclude README.md
+    /README.md
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: fluxcd-gitops-infra
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: fluxcd-gitops-crds
+  interval: 10m
+  path: ./clusters/homelab
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: fluxcd-gitops-infra
+  postBuild:
+    substitute:
+      env: "homelab"
+      cluster_name: "docker-desktop"
+      cluster_subdomain: "docker.local"
