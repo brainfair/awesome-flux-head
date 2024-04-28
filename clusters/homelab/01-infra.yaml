@@ -33,4 +33,4 @@ spec:
     substitute:
       env: "homelab"
       cluster_name: "docker-desktop"
-      cluster_subdomain: "docker.local"
+      cluster_subdomain: "localhost.direct"
