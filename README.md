@@ -18,6 +18,10 @@ flux bootstrap github \
   --personal
 ```
 
+## Additional repositories
+- [CRD GitOps repository](https://github.com/brainfair/awesome-flux-crds)
+- [Infra GitOps repository](https://github.com/brainfair/awesome-flux-infra)
+
 ## Architecture
 
 ![High-level design](architecture.drawio.svg)
