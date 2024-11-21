@@ -25,7 +25,7 @@ spec:
     - name: fluxcd-gitops-crds
   interval: 10m
   path: ./clusters/homelab
-  prune: false
+  prune: true
   sourceRef:
     kind: GitRepository
     name: fluxcd-gitops-infra
