@@ -33,4 +33,4 @@ spec:
     substitute:
       env: "hetzner-k3s"
       cluster_name: "hetzner-k3s"
-      cluster_subdomain: "brainfair-hetzner-k3s"
+      cluster_subdomain: "brainfair-hetzner-k3s.internal"
