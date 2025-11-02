@@ -22,7 +22,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m
-  path: ./crds/cloudnative-pg
+  path: ./bundles/minimal
   prune: true
   sourceRef:
     kind: GitRepository
