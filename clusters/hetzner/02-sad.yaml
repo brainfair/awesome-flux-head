@@ -1,0 +1,26 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: flux-ks-sadness
+  namespace: flux-system
+spec:
+  interval: 10m
+  ref:
+    branch: main
+  secretRef:
+    name: flux-system
+  url: https://github.com/identw/flux-ks-sadness.git
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: flux-ks-sadness
+  namespace: flux-system
+spec:
+  interval: 10m
+  path: ./flux
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-ks-sadness
